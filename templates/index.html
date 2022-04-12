@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p>I'm extended from base.html!</p>
+
+<div class="container">
+    {% for event in event_list %}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{ event.title }}</h5>
+          <p class="card-text">{{ event.event_date_and_time }}</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+
+<!-- <div class="col-12 mt-3 left">
+    <div class="row">
+        {% for event in eventlist %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                        <h2 class="card-title">{{ event.title }}</h2>
+                        <p class="card-text">{{ event.created_by }}</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:3 %}
+    </div>
+    <div class="row">
+        {% endif %}
+        {% endfor %}
+
+    </div>
+</div>
+</div>
+{% if is_paginated %}
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+        {% endif %}
+        {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
+</div> -->
+{%endblock%}
