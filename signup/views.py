@@ -12,8 +12,8 @@ class EventList(generic.ListView):
 
 class EventDetail(View):
     
-    def get(self, request, title, *args, **kwargs):
-        event=get_object_or_404(title=title)
+    def get(self, request, id, *args, **kwargs):
+        event = get_object_or_404(Event, pk=id)
 
         return render(
             request,
