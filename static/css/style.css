@@ -1,8 +1,3 @@
-.h1 {
-    color: chocolate;
-}
-
-.p {
-    font-size: large;
-    text-align: right;
+#event-card {
+    background-color: chocolate;
 }

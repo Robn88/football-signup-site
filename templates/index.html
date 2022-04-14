@@ -6,11 +6,12 @@
     <div class="row">
         {% for event in event_list %}
         <div class="col-4">
-            <div class="card">
+            <div class="card event-card">
                 <div class="card-body">
                     <h5 class="card-title">{{ event.title }}</h5>
                     <p class="card-text">{{ event.event_date_and_time }}</p>
                     <p class="card-text">{{ event.venue }}</p>
+                    <p class="card-text">Max. participants: {{ event.max_participants }}</p>
                     <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                         Sign up
                       </button> -->
