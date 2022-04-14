@@ -24,3 +24,8 @@ class Registration(models.Model):
     name = models.ForeignKey(User, on_delete=models.CASCADE)
     ball = models.BooleanField(default=False)
     bibs = models.BooleanField(default=False)
+    guest = models.BooleanField(default=False)
+
+    
+    def __str__(self):
+        return str(self.name)
