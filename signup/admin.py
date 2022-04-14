@@ -1,12 +1,18 @@
 from django.contrib import admin
-from .models import Event
+from .models import Event, Registration
 
 
-class Filter(admin.ModelAdmin):
+class EventAdmin(admin.ModelAdmin):
 
     list_display = ('title', 'event_date_and_time', 'venue')
     list_filter = ('venue', 'event_date_and_time', 'title')
     search_fields = ('venue', 'event_date_and_time', 'created_by')
 
 
-admin.site.register(Event, Filter)
+class RegistrationAdmin(admin.ModelAdmin):
+
+    list_display = ('name', 'event', 'ball', 'bibs', 'guest')
+
+
+admin.site.register(Event, EventAdmin)
+admin.site.register(Registration, RegistrationAdmin)
