@@ -2,15 +2,23 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.utils import timezone
 from .models import Event, Registration
 from .forms import RegistrationForm
 
 
 class EventList(generic.ListView):
-    model = Event
-    queryset = Event.objects.order_by('-event_date_and_time')
+    context_object_name = "data"
     template_name = 'index.html'
-    paginate_by = 6
+    model = Event
+
+    def get_queryset(self):
+        now = timezone.now()
+        myset = {
+            "upcoming": Event.objects.filter(event_date_and_time__gte=now).order_by('event_date_and_time'),
+            "past": Event.objects.filter(event_date_and_time__lte=now).order_by('event_date_and_time')
+        }
+        return myset
 
 
 class EventDetail(View):
@@ -49,4 +57,20 @@ def event_registration(request, id):
         "form": form,
     }
     return render(request, template, context)
-    
+
+
+# model = Event
+# queryset = Event.objects.order_by('-event_date_and_time')
+# template_name = 'index.html'
+# paginate_by = 6
+
+# class EventList(generic.ListView):
+#     def get_queryset(self):
+#         # model = Event
+#         now = timezone.now()
+#         upcoming_events = Event.objects.filter(event_date_and_time__gte=now).order_by('-event_date_and_time')
+#         # model = Event
+#         # queryset = Event.objects.order_by('-event_date_and_time')
+#         template_name = 'index.html'
+#         # paginate_by = 6
+#         return upcoming_events

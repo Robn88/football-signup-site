@@ -48,7 +48,9 @@
                     {% endif %}
         </div>
     </nav>
-    <h1>Hello world!</h1>
+    {% if user.is_authenticated %}
+    <h2>Hello, {{ user }}!</h2>
+    {% endif %}
 
     {% block content %}
     <!-- Content Goes here -->
