@@ -3,23 +3,25 @@
 {% block content %}
 
 <p>{{ event.title }}</p>
-<p>{{ total_participants }} / {{ event.max_participants }} ({{ remaining_spaces }} spot{{ remaining_spaces|pluralize }} remaining!)</p>
+<p>{{ total_participants }} / {{ event.max_participants }} ({{ remaining_spaces }} spot{{ remaining_spaces|pluralize }}
+    remaining!)</p>
 {% if total_participants < event.max_participants %}
 <a href="{% url 'event_registration' event.id %}" class="btn">Register</a>
+
 {% else %}
 <p>This event has filled up.</p>
 {% endif %}
 
 <h2>Current Participants</h2>
 <ul>
-{% for person in registrations %}
-<li>
-    {{ person.name }}
-    {% if person.guest %}
-    +1
-    {% endif %}
-</li>
-{% endfor %}
+    {% for person in registrations %}
+    <li>
+        {{ person.name }}
+        {% if person.guest %}
+        +1
+        {% endif %}
+    </li>
+    {% endfor %}
 </ul>
 
 {% endblock %}
