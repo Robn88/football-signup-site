@@ -13,7 +13,34 @@
 {% endif %}
 
 <h2>Current Participants</h2>
-<ul>
+<table class="table table-striped table-dark">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Ball</th>
+            <th>Bibs</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for person in registrations %}
+        <tr>
+            <td>{{ person.name }}</td>
+            {% if person.ball %}
+            <td><i class="fa-solid fa-futbol"></i></td>
+            {% endif %}
+            {% if person.bibs %}
+            <td><i class="fa-solid fa-shirt"></i></td>
+            {% endif %}
+        </tr>
+        {% if person.guest %}
+        <td>{{ person.name }}'s guest</td>
+        {% endif %}
+        {% endfor %}
+    </tbody>
+</table>
+
+
+<!-- <ul>
     {% for person in registrations %}
     <li>
         {{ person.name }}
@@ -22,6 +49,6 @@
         {% endif %}
     </li>
     {% endfor %}
-</ul>
+</ul> -->
 
 {% endblock %}
