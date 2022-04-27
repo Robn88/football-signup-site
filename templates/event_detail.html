@@ -2,17 +2,53 @@
 
 {% block content %}
 
-<p>{{ event.title }}</p>
-<p>{{ total_participants }} / {{ event.max_participants }} ({{ remaining_spaces }} spot{{ remaining_spaces|pluralize }}
-    remaining!)</p>
+<h1 class="align-headings">{{ event.title }}</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <h3>Date and Time</h3>
+            <p>{{ event.event_date_and_time }}</p>
+        </div>
+        <div class="col-sm">
+            <h3>Venue</h3>
+            <p>{{ event.venue }}</p>
+        </div>
+        <div class="col-sm">
+            <h3>Total Participants</h3>
+            <p>{{ total_participants }} / {{ event.max_participants }} ({{ remaining_spaces }}
+                spot{{ remaining_spaces|pluralize }}
+                remaining!)</p>
+        </div>
+    </div>
+</div>
+<!-- <h3>Date and Time</h3>
+<p>{{ event.event_date_and_time }}</p>
+<h3>Venue</h3>
+<p>{{ event.venue }}</p> -->
+{% if event.extra_info %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <h3>Extra information</h3>
+            <p>{{ event.extra_info }}</p>
+        </div>
+    </div>
+</div>
+{% else %}
+{% endif %}
+<!-- <p>{{ total_participants }} / {{ event.max_participants }} ({{ remaining_spaces }} spot{{ remaining_spaces|pluralize }}
+    remaining!)</p> -->
 {% if total_participants < event.max_participants %}
-<a href="{% url 'event_registration' event.id %}" class="btn">Register</a>
+<div class="d-flex justify-content-center">
+    <a href="{% url 'event_registration' event.id %}" class="btn btn-success" id="signup-button">Register</a>
+</div>
+
 
 {% else %}
 <p>This event has filled up.</p>
 {% endif %}
 
-<h2>Current Participants</h2>
+<h2 class="align-headings">Current Participants</h2>
 <table class="table table-striped table-dark">
     <thead>
         <tr>

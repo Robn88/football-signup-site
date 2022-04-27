@@ -1,3 +1,11 @@
 .event-card {
-    background-color: chocolate;
+    background-color: rgb(207, 210, 30);
+}
+
+.align-headings {
+    text-align: center;
+}
+
+#signup-button {
+    font-size: 1.17em
 }
