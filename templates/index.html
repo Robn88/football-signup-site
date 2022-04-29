@@ -7,8 +7,9 @@
 {% endif %}
 
 
-<h2>Upcoming Events</h2>
+
 <div class="container">
+  <h2>Upcoming Events</h2>
   <div class="row">
     {% for event in data.upcoming %}
     <div class="col-4">
@@ -27,8 +28,8 @@
     </div>
 
     {% endfor %}
-    <h2>Past Events</h2>
     <div class="container">
+      <h2>Past Events</h2>
       <div class="row">
         {% for event in data.past %}
         <div class="col-4">
