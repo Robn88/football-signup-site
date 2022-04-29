@@ -21,10 +21,6 @@
         </div>
     </div>
 </div>
-<!-- <h3>Date and Time</h3>
-<p>{{ event.event_date_and_time }}</p>
-<h3>Venue</h3>
-<p>{{ event.venue }}</p> -->
 {% if event.extra_info %}
 <div class="container">
     <div class="row">
@@ -36,14 +32,10 @@
 </div>
 {% else %}
 {% endif %}
-<!-- <p>{{ total_participants }} / {{ event.max_participants }} ({{ remaining_spaces }} spot{{ remaining_spaces|pluralize }}
-    remaining!)</p> -->
 {% if total_participants < event.max_participants %}
 <div class="d-flex justify-content-center">
     <a href="{% url 'event_registration' event.id %}" class="btn btn-success" id="signup-button">Register</a>
 </div>
-
-
 {% else %}
 <p>This event has filled up.</p>
 {% endif %}
@@ -53,6 +45,7 @@
     <thead>
         <tr>
             <th>Name</th>
+            <th>Unregsiter</th>
             <th>Ball</th>
             <th>Bibs</th>
         </tr>
@@ -61,30 +54,51 @@
         {% for person in registrations %}
         <tr>
             <td>{{ person.name }}</td>
-            {% if person.ball %}
-            <td><i class="fa-solid fa-futbol"></i></td>
-            {% endif %}
-            {% if person.bibs %}
-            <td><i class="fa-solid fa-shirt"></i></td>
-            {% endif %}
+            <td>
+                {% if person.name|lower == request.user|lower %}
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-{{ person.id }}">
+                    Unregister
+                  </button>
+                <div class="modal" id="modal-{{ person.id }}" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Modal title</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <p>Modal body text goes here.</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <a href="{% url 'event_unregister' event.id person.id %}" class="btn btn-success">Unregister</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+            </td>
+            <td>
+                {% if person.ball %}
+                <i class="fas fa-futbol"></i>
+                {% endif %}
+            </td>
+            <td>
+                {% if person.bibs %}
+                <i class="fas fa-tshirt"></i>
+                {% endif %}
+            </td>
         </tr>
         {% if person.guest %}
-        <td>{{ person.name }}'s guest</td>
+        <tr>
+            <td>
+                {{ person.name }}'s guest
+            </td>
+        </tr>
         {% endif %}
         {% endfor %}
     </tbody>
 </table>
-
-
-<!-- <ul>
-    {% for person in registrations %}
-    <li>
-        {{ person.name }}
-        {% if person.guest %}
-        +1
-        {% endif %}
-    </li>
-    {% endfor %}
-</ul> -->
-
 {% endblock %}
