@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<!--This is where all of the information about the event is contained.-->
 <h1 class="align-headings">{{ event.title }}</h1>
 <div class="container">
     <div class="row">
@@ -21,6 +21,7 @@
         </div>
     </div>
 </div>
+<!--If the creator of the event has added extra info, then it will be displayed here.-->
 {% if event.extra_info %}
 <div class="container">
     <div class="row">
@@ -32,6 +33,7 @@
 </div>
 {% else %}
 {% endif %}
+<!--Checks to see if there are any spaces left.-->
 {% if total_participants < event.max_participants %}
 <div class="d-flex justify-content-center">
     <a href="{% url 'event_registration' event.id %}" class="btn btn-success" id="signup-button">Register</a>
@@ -39,7 +41,11 @@
 {% else %}
 <p>This event has filled up.</p>
 {% endif %}
-
+<!--A table that shows all of the current participants, and 
+allows an already-registered user to unregister. If a 
+participant is bringing a guest, then they will get their own
+row, and if they have ticked the box for bringing bibs and a ball,
+then an icon will be displayed in the corresponding column.-->
 <h2 class="align-headings">Current Participants</h2>
 <table class="table table-striped table-dark">
     <thead>
@@ -63,13 +69,13 @@
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h5 class="modal-title">Modal title</h5>
+                          <h5 class="modal-text">Confirm Unregister</h5>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
                         <div class="modal-body">
-                          <p>Modal body text goes here.</p>
+                          <p class="modal-text">Are you sure you no longer want to participate in {{ event.title }} on {{ event.event_date_and_time }}?</p>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

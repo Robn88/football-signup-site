@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<h1>Unregister</h1>
+<p>Are you sure you no longer want to participate in {{ event.title }} on {{ event.event_date_and_time }}?</p>
+
+<a href="{% url 'event_unregister' event.id registration.id %}" class="btn">Yes, I'm sure</a>
+
+
+{% endblock %}

@@ -26,6 +26,7 @@
 </head>
 
 <body>
+    <!--Navbar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,6 +37,8 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="{% url 'Home' %}">Home <span class="sr-only">(current)</span></a>
+                    <!--Checks if a user is authenticated, and if they are display a message and logout.
+                    If they are not logged in, display register and login links.-->
                     {% if user.is_authenticated %}
                 <li>
                     <span class="nav-link">
@@ -56,7 +59,6 @@
         </div>
     </nav>
     {% block content %}
-    <!-- Content Goes here -->
     {% endblock content %}
 </body>
 
