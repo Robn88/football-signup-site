@@ -2,6 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+# This is the Event model.
+
+
 class Event(models.Model):
     title = models.CharField(max_length=100)
     created_by = models.\
@@ -17,6 +20,9 @@ class Event(models.Model):
 
     def __str__(self):
         return self.title
+
+
+# This is the Registration model.
 
 
 class Registration(models.Model):

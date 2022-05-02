@@ -2,6 +2,9 @@ from django.contrib import admin
 from .models import Event, Registration
 
 
+# These Admin classes allow the admin to filter and find events more easily.
+
+
 class EventAdmin(admin.ModelAdmin):
 
     list_display = ('title', 'event_date_and_time', 'venue')
