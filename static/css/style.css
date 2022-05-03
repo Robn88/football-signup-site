@@ -1,5 +1,9 @@
-.event-card {
-    background-color: rgb(207, 210, 30);
+.upcoming-event-card {
+    background-color: rgb(157, 169, 181, 1);
+}
+
+.past-event-card {
+    background-color: rgb(222, 226, 230, 1);
 }
 
 .align-headings {
@@ -8,4 +12,8 @@
 
 #signup-button {
     font-size: 1.17em
+}
+
+.modal-text {
+    color: black;
 }
