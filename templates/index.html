@@ -9,7 +9,7 @@
   <h2>Upcoming Events</h2>
   <div class="row">
     {% for event in data.upcoming %}
-    <div class="col-4">
+    <div class="col-sm-12 col-md-6 col-lg-4">
       <div class="card upcoming-event-card">
         <div class="card-body">
           <h5 class="card-title">{{ event.title }}</h5>
@@ -20,27 +20,29 @@
         </div>
       </div>
     </div>
-<!--A bootstrap container that will generate a card for each past event.-->
     {% endfor %}
-    <div class="container">
-      <h2>Past Events</h2>
-      <div class="row">
-        {% for event in data.past %}
-        <div class="col-4">
-          <div class="card past-event-card">
-            <div class="card-body">
-              <h5 class="card-title">{{ event.title }}</h5>
-              <p class="card-text">{{ event.event_date_and_time }}</p>
-              <p class="card-text">{{ event.venue }}</p>
-              <p class="card-text">Max. participants: {{ event.max_participants }}</p>
-              <a href="{% url 'event_detail' event.id %}" class="post-link">Sign up</a>
-            </div>
-          </div>
+  </div>
+</div>
+<!--A bootstrap container that will generate a card for each past event.-->
+<div class="container">
+  <h2>Past Events</h2>
+  <div class="row">
+    {% for event in data.past %}
+    <div class="col-sm-12 col-md-6 col-lg-4">
+      <div class="card past-event-card">
+        <div class="card-body">
+          <h5 class="card-title">{{ event.title }}</h5>
+          <p class="card-text">{{ event.event_date_and_time }}</p>
+          <p class="card-text">{{ event.venue }}</p>
+          <p class="card-text">Max. participants: {{ event.max_participants }}</p>
+          <a href="{% url 'event_detail' event.id %}" class="post-link">Sign up</a>
         </div>
-
-        {% endfor %}
       </div>
     </div>
 
+    {% endfor %}
+  </div>
+</div>
 
-    {%endblock%}
+
+{%endblock%}

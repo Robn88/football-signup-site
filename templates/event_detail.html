@@ -64,26 +64,28 @@ then an icon will be displayed in the corresponding column.-->
                 {% if person.name|lower == request.user|lower %}
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-{{ person.id }}">
                     Unregister
-                  </button>
+                </button>
                 <div class="modal" id="modal-{{ person.id }}" tabindex="-1" role="dialog">
                     <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-text">Confirm Unregister</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-text">Confirm Unregister</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p class="modal-text">Are you sure you no longer want to participate in
+                                    {{ event.title }} on {{ event.event_date_and_time }}?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <a href="{% url 'event_unregister' event.id person.id %}"
+                                    class="btn btn-success">Unregister</a>
+                            </div>
                         </div>
-                        <div class="modal-body">
-                          <p class="modal-text">Are you sure you no longer want to participate in {{ event.title }} on {{ event.event_date_and_time }}?</p>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <a href="{% url 'event_unregister' event.id person.id %}" class="btn btn-success">Unregister</a>
-                        </div>
-                      </div>
                     </div>
-                  </div>
+                </div>
                 {% endif %}
             </td>
             <td>
