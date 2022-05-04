@@ -69,7 +69,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-X_FRAME_OPTIONS = 'SAMEORIGIN'
+X_FRAME_OPTIONS = 'ALLOW-FROM https://ui.dev/amiresponsive'
 
 ROOT_URLCONF = 'footballSignup.urls'
 
