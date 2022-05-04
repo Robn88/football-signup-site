@@ -10,7 +10,7 @@ The sites features include the following:
 
 ### Index Page
 
-- The index page, when not logged in, appears as below, with all events visible. The navbar contains links for Home, to Register, and to Login:
+- The index page, when not logged in, appears as below, with all events visible, in order of soonest to furthest away. The navbar contains links for Home, to Register, and to Login:
 
 ![index page when user not logged in](assets/readme/features/index_page_not_logged_in.png)
 
@@ -273,4 +273,16 @@ This project has been deployed to Heroku. I will detail the steps I took in orde
 - [Bootstrap documentation](https://getbootstrap.com/docs/4.1/getting-started/introduction/) was also very useful in order to find the right pre-designed html and CSS.  
 
 
-- The use of Bootstrap cards was inspired by the Django blog walkthrough; a link to the repository can be found [here](https://github.com/Robn88/django-blog).
+- The use of Bootstrap cards was inspired by the Django blog walkthrough; a link to the repository can be found [here](https://github.com/Robn88/django-blog).  
+
+
+
+## Acknowledgements  
+
+
+
+- I would like to thank the following:
+    - My mentor Tim, for his help and patience during our one on one sessions;
+    - The Code Institute Slack community, where I went for a lot of queries about matters great and small;
+    - The Code Institute tutor support system, which was an essential tool to enable me to finish my project;
+    - Stack Overflow, which provided many answers to my questions, or at the very least was able to put me in the right direction
