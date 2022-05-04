@@ -1,12 +1,15 @@
-navbar- taken from codestar blog
-
 # Football Signup 
+
+
+![Image of site on different devices](assets/readme/features/amiresponsive.png)
 
 Football Signup is a site designed for people to organise and register for football events. A superuser can create an event, and users can view this event, and the current participants. They can also see if any of the participants are bringing balls, bibs and any guests. This site was inspired by my own real life problems when trying to arrange football matches, and having to use WhatsApp groups and Doodle. My idea was to try to simplify this into a site, where users can get all of the information that they require in one place.
 
 ## Features
 
-The sites features include the following:
+
+
+The features of the site include the following:
 
 ### Index Page
 
@@ -47,6 +50,17 @@ The sites features include the following:
 - If a user has registered, and wishes to unregister, they can click the unregister button by their name on the table, which will bring up the following modal box:
 
 ![screenshot of the unregister modal](assets/readme/features/unregister_modal.png)
+
+
+## Features to implement  
+
+- In its current state, there are several more features that could be implemented:  
+
+    - On the index page, a filter to allow logged-in users to see only events they have or have not signed up for, or to filter them by location or date, would be a feature that would add a lot of value to the user experience.  
+
+    - Currently, a user who has already registered for an event can then register for an event multiple times. Preventing this would enhance further the user experience, as it would prevent people signing up multiple times in error.  
+
+    - Adding styles to the forms and the log in / create account page, that were consistent with the rest of the site, would also add to the user experience.
 
 
 
