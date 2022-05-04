@@ -247,7 +247,7 @@ This project has been deployed to Heroku. I will detail the steps I took in orde
 19. When I had connected my GitHub account, I then used the search function and found the name of my repository. I then clicked on deploy branch to deploy my project.
 
 
-## Credits
+## Technologies used
 
 - The application is deployed on Heroku.
 - The repository is hosted on GitHub.
@@ -256,3 +256,21 @@ This project has been deployed to Heroku. I will detail the steps I took in orde
 - The static files are hosted using WhiteNoise.
 - The Django framework is used.
 - The Bootstrap CSS framework is used to easily and simply style the website, and make it easy to navigate for mobile phone and tablet users.
+- The fonts representing the bibs and balls were taken from Font Awesome
+
+
+## Credits
+
+- When trying to build the function to delete a post, I used this [post](https://stackoverflow.com/questions/3805958/how-to-delete-a-record-in-django-models) from stack overflow as a guide.  
+
+
+- As I was trying to implement the modal for the delete function, this [blogpost](https://simpleisbetterthancomplex.com/tutorial/2016/11/15/how-to-implement-a-crud-using-ajax-and-json.html) as a tool to help me understand the process better.  
+
+
+- The [Django documentation](https://docs.djangoproject.com/en/4.0/) was an invaluable reference point during the project.  
+
+
+- [Bootstrap documentation](https://getbootstrap.com/docs/4.1/getting-started/introduction/) was also very useful in order to find the right pre-designed html and CSS.  
+
+
+- The use of Bootstrap cards was inspired by the Django blog walkthrough; a link to the repository can be found [here](https://github.com/Robn88/django-blog).
